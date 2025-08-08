@@ -1,1 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+div {
+    margin: 20px;
+}
+
+
+.table {
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table tr:hover > td{
+    background-color: #f1d6d6;
+}
+
+button {
+    /* margin: 5px; */
+    height: auto;
+    width: 70px;
+    font-weight: bold;
+    background-color: white;
+}
+
+button:hover {
+    background-color: #77a9de;
+    color: white;
+}
+
+
+#addNewUser {
+    margin-bottom: 20px;
+    height: auto;
+    width: auto;
+}
+
+
+.bold-class {
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* #name, #username, #email, #address, #geo, #phone, #website, #company {
+    font-weight: bold;
+} */

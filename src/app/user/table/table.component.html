@@ -1,0 +1,31 @@
+<div>
+  <button (click)="addUser()" id="addNewUser">Add New User</button>
+  
+  <div *ngIf="userAdded">
+    <app-form [addForm]="userAdded" [editForm]="userEdited" (addFormToggle)="addFormToggle($event)" (addUser)="addUserDetails($event)"></app-form>
+  </div>
+
+  <div *ngIf="userEdited">
+    <app-form [userDetail]="userDetails" [editForm]="userEdited" (editFormToggle)="editFormToggle($event)" (saveUser)="editUserDetails($event)"></app-form>
+  </div>
+
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <button (click)="editUser(i)">Edit</button>
+        <button (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+

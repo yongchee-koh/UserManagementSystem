@@ -1,0 +1,94 @@
+<form [formGroup]="userForm">
+    <table>
+        <tr>
+            <td><label for="name" class="bold-class">Name</label></td>
+            <td><input type="text" formControlName="name" required/></td>  
+        </tr>
+        <tr *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="error">
+            <td colspan="3">Please fill out the required fields.</td>
+        </tr>
+            
+        <tr>
+            <td><label for="username" class="bold-class">Username</label></td>
+            <td><input type="text" formControlName="username" required/></td>
+        </tr>
+        <tr *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched" class="error">
+            <td colspan="3">Please fill out the required fields.</td>
+        </tr>
+
+        <tr>
+            <td><label for="email" class="bold-class">Email</label></td>
+            <td><input type="email" formControlName="email" required/></td>
+        </tr>
+        <tr *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error">
+            <td colspan="3">Please fill out the required fields.</td>
+        </tr>
+
+        <tr>
+            <td><label for="phone" class="bold-class">Phone</label></td>
+            <td><input type="tel" formControlName="phone"/></td>
+        </tr>
+        <tr>
+            <td><label for="website" class="bold-class">Website</label></td>
+            <td><input type="text" formControlName="website"/></td>
+        </tr>
+        
+        <ng-container [formGroup]="addressGroup">
+            <tr><td colspan="2"><label for="address" class="bold-class">Address</label></td></tr>
+            <tr>
+                <td><label for="street">Street</label></td>
+                <td><input type="text" formControlName="street"/></td>
+            </tr>
+            <tr>
+                <td><label for="suite">Suite</label></td>
+                <td><input type="text" formControlName="suite"/></td>
+            </tr>
+            <tr>
+                <td><label for="city">City</label></td>
+                <td><input type="text" formControlName="city"/></td>
+            </tr>
+            <tr>
+                <td><label for="zipcode">Zipcode</label></td>
+                <td><input type="text" formControlName="zipcode"/></td>
+            </tr>
+            <ng-container [formGroup]="geoGroup">
+                <tr><td colspan="2"><label for="geo" class="bold-class">Geo</label></td></tr>
+                <tr>
+                    <td><label for="lat">Lat</label></td>
+                    <td><input type="text" formControlName="lat"/></td>
+                </tr>
+                <tr>
+                    <td><label for="lng">Lng</label></td>
+                    <td><input type="text" formControlName="lng"/></td>
+                </tr>
+            </ng-container>
+        </ng-container>
+
+        <ng-container [formGroup]="companyGroup">
+            <tr><td colspan="2"><label for="company" class="bold-class">Company</label></td></tr>
+            <tr>
+                <td><label id="name">Name</label></td>
+                <td><input type="text" formControlName="name"/></td>
+            </tr>
+            <tr>
+                <td><label for="catchPhrase">Catch Phrase</label></td>
+                <td><input type="text" formControlName="catchPhrase"/></td>
+            </tr>
+            <tr>
+                <td><label for="bs">BS</label></td>
+                <td><input type="text" formControlName="bs"/></td>
+            </tr>
+        </ng-container> 
+
+        <tr>
+            <td colspan="3"><button (click)="add()" [disabled]="!addForm || isFormInvalid()" type="button">Add</button></td>
+        </tr>
+        <tr>
+            <td colspan="3"><button (click)="save()" [disabled]="!editForm || isFormInvalid()" type="button">Save</button></td>
+        </tr>   
+        <tr>
+            <td colspan="3"><button (click)="cancel()">Cancel</button></td>
+        </tr>         
+    </table>
+</form>
+    
