@@ -38,11 +38,18 @@ export class TableComponent implements OnInit {
     this.userDetails = user;
     console.log('Adding User:', this.userDetails);
     
-    // New user added to, local list
-    const userID = this.users.slice(-1)[0].id; // Get last user ID
-    console.log('Last User ID:', userID);
-    this.userDetails.id = userID + 1; // Assign a new ID
-    console.log('New ID:', this.userDetails.id);
+    // Local list is empty (all data is deleted)
+    if (this.users.length === 0) {
+      this.userDetails.id = 1; // Start with ID 1 if no users exist
+      console.log('First User ID:', this.userDetails.id);
+    } else {
+      // New user added to, local list
+      this.userDetails.id = this.users.slice(-1)[0].id + 1; // Increment ID based on last user
+      console.log('Last User ID:', this.userDetails.id);
+      this.userDetails.id = this.userDetails.id++; // Assign a new ID
+      console.log('New ID:', this.userDetails.id);
+    }
+
     console.log('User Added:', this.userDetails);
     this.users = [...this.users, this.userDetails]; // Add new user to the list
     
